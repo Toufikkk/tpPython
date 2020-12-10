@@ -42,7 +42,29 @@ class Professeur(Personne):
 # Heritage multiple
 class Doctorant(Etudiant, Professeur):
 	pass
+#Classe Voiture : getter / setter
+class Voiture:
 
+	nb_voitures =0
+	def __init__(self):
+		self._roues = 4
+
+	#getter
+	@property
+	def roues(self):
+		print("Récuperation du nombre des roues")
+		return self._roues
+	#setter
+	@roues.setter
+	def roues(self, r):
+		print("changement du nombre de roues")
+		self._roues = r	
+
+def change_nb_voitures(cls, nouveau_nombre):
+	nb_voitures = nouveau_nombre
+
+
+change_nb_voitures = classmethod(change_nb_voitures)	
 
 # Programme principal
 a1 = Adresse("rue de paris","5","75000","Paris")
@@ -58,3 +80,14 @@ print(type(prof1))
 p1.se_nourrir()
 et1.se_nourrir()
 prof1.se_nourrir()
+#appel de voiture
+ma_voiture = Voiture()
+print(ma_voiture.roues)
+ma_voiture.roues = 5
+print(ma_voiture.roues)
+#fonction dir pour avoir l'aperçu des methodes de l'objet
+print(dir(ma_voiture))
+#attribut __dict__ donne les valeurs des attributs
+print(ma_voiture.__dict__)
+#appel de method de classe
+print("nombre de voitures = ".format(Voiture.change_nb_voitures))
