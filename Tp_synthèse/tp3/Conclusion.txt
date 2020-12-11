@@ -1,0 +1,1 @@
+L'héritage multiple sert à combiner les comportements de plusieurs classes. 
